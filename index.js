@@ -61,7 +61,7 @@ function loadMovieDetails(){
             movieSearchBox.value = "";
              localStorage.setItem("movieID", movie.dataset.id); // Set movie id to localstorage to use it in moviePage.html
 
-            window.location.href = "/moviepage/index.html"; 
+            window.location.href = "imdb_clone/moviepage/index.html";
                  
             const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=fc1fef96`);
             const movieDetails = await result.json();
