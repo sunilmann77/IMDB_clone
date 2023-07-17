@@ -1,0 +1,434 @@
+body{
+    margin: 0px;
+    height: 100%;
+    width: auto;
+    background-color: #2d2931;
+}
+/* Navbar Section */
+#form-1 {
+    color: #555;
+    display: flex;
+    padding: 2px;
+    border: 1px solid currentColor;
+    border-radius: 5px;
+    width: 700px;
+    float: left;
+    margin-right: 20px;
+    height: 38px;
+    margin-top: 7px;
+  }
+  #menu-btn{
+    margin-top: 4px;
+    font: 900;
+  }
+/* search button */
+  input[type="search"] {
+    border: none;
+    background: transparent;
+    width: 800px;
+    padding: 7px 8px;
+    font-size: 14px;
+    color: inherit;
+    border: 1px solid transparent;
+    border-radius: inherit;
+  }
+
+  input[type="search"]::placeholder {
+    color: #bbb;
+  }
+/* button option for submit  */
+  button[type="submit"] {
+    text-indent: -999px;
+    overflow: hidden;
+    width: 40px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    border-radius: inherit;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    cursor: pointer;
+    opacity: 0.7;
+    float: right;
+  }
+  
+  button[type="submit"]:hover {
+    opacity: 1;
+  }
+
+  button[type="submit"]:focus,
+ input[type="search"]:focus {
+  box-shadow: 0 0 3px 0 #1183d6;
+  border-color: #1183d6;
+  outline: none;
+}
+
+/* IMDB PR0 navbar*/
+
+.IMDBPro{
+     float: left;
+     border: transparent; 
+     background-color: transparent;
+     margin-top: 5px;
+}
+.IMDBPro:hover{
+    display: flex;
+    height: 250px;
+    width: 580px;
+    border: solid black 2px;
+    z-index:2;
+    position: absolute;
+    margin-left: 650px;
+    background-image: url(/Screenshot\ \(227\).png);
+}
+#navbar-space-around{
+  display: flex;
+  justify-content: space-around;
+  /* border: solid red 2px; */
+}
+#nav{
+  position: fixed;
+  width: 100vw;
+  /* border: #fa1717 solid 2px; */
+}
+/* watchlist button navbar */
+#watchlist{
+    background-color: transparent;
+    font-size: larger;
+    font-weight: bold;
+    border: none;
+    margin-top: 10px;
+    color:rgb(66, 64, 64); 
+}
+
+#fav{
+    color: white;
+    padding: 4%;
+    margin-left: 30%;
+    width: 500px;
+    font-weight: bolder;
+    text-decoration: dotted;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  }
+
+
+#en{
+    background-color: transparent;
+    font-size: larger;
+    font-weight: bold;
+    border: none;
+    margin-top: 5px;
+    margin-right: -20%;
+    float: right;
+}
+
+
+.dropdown-menu{
+    margin-left: -100px;
+}
+#en-list:hover{
+  background-color: black ;
+  color: white;
+}
+
+/* nav bar end  section*/
+
+#container{
+  border: solid rgb(0, 0, 0) 2px;
+  background-image: linear-gradient(to bottom right, rgb(68, 61, 80),rgb(189, 184, 197));
+}
+/* title */
+#title-section{
+  /* background-color: rgb(68, 61, 80); */
+  /* background-image: linear-gradient(to bottom right, rgb(68, 61, 80),rgb(189, 184, 197)); */
+  display: flex;
+  border: solid rgb(0, 0, 0) 2px;
+}
+
+#title-section h1{
+  margin-left: 5%;
+  color: beige;
+}
+
+#title_left_side{
+  float: left;
+  margin-left: 10%;
+  font-weight: bolder;
+  color: rgb(8, 8, 8);
+  background-color: rgb(255, 251, 26);
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+#title_right_side{
+  float: right;
+  margin-right: 10%;
+  font-weight: bolder;
+  color: rgb(8, 8, 8);
+  background-color: rgb(255, 251, 26);
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+#poster{
+ margin-left: 5%;
+ margin-top: 20px;
+}
+#plot{
+  margin-top: 5px;
+  text-align: center;
+  color: rgb(19, 18, 18);
+}
+
+#cast{
+float: left;
+width: 70%;
+margin-left: 2%;
+padding-top:2px;
+border-bottom: solid black 2px;
+/* background-color: aqua; */
+}
+#rating_numbers{
+  float:right;
+  width: 20%;
+  margin-right: 8%;
+  padding-top:2px;
+  border-bottom: solid black 2px;
+  /* background-color: aqua; */
+}
+#awards-section{
+  border: solid black 2px;
+}
+#awards-section h2{
+  margin-left: 2%;
+}
+.span{
+  background-color: yellow;
+  color: #555;
+  font-size: 20px;
+}
+
+.span-awards{
+  color: #fa1717;
+  font-size: 20px;
+  margin-left: 2%;
+}
+/* main html and movie template end */
+
+
+/* searchlist */
+.search-container{
+  height: 180px;
+  display: flex;
+  align-items: center;
+  margin-left: 22%;
+  /* border: solid red 2px; */
+  padding-top: 130px;
+}
+
+.search-element h1{
+  color: white;
+  padding: 4%;
+  margin-left: 30%;
+  width: 400px;
+}
+
+
+.form-control{
+  width: 800px;
+  height: 50px;
+}
+.search-item-thumbnail img{
+  height: 90px;
+  width: 80px;
+}
+.search-list-item{
+  display: flex;
+  border: solid rgb(8, 10, 32) 2px;
+  background-color: rgb(39, 38, 39);
+  justify-content: space-between;
+  box-shadow: inset;
+  /* margin-top: 50px; */
+}
+.search-list{
+  position: absolute;
+  right: 18.5%;
+  top: 40%;
+  width: 800px;
+  max-height: 500px;
+  overflow-y: scroll;
+  z-index: 10;
+}
+
+.search-image{
+  margin-top: 1px;
+  margin-right: 5px;
+}
+.search-item-info h4{
+  color: aliceblue;
+  /* text-align: left; */
+  list-style: none;
+  position: absolute;
+  left: 100px;
+  width: auto;
+  margin-top: 10px;
+}
+.search-item-info p{
+  color: aliceblue;
+  text-align: left;
+  position: absolute;
+  left: 100px;
+  width: auto;
+  margin-top: 60px;
+}
+/* search list item */
+
+
+#movie-fetch{
+  margin-top: -100px;
+}
+#moviepage{
+  padding-top: 50px;
+}
+
+.movie-info{
+  color: white;
+  margin-top: -100px;
+}
+
+#moviefetch1{
+  display: flex;
+  /* margin: 10px; */
+  /* margin-top: 10px; */
+}
+
+/* js related class */
+.hide-search-list{
+  display: none;
+}
+
+
+/* fetched details form api */
+
+.movie-poster{
+  justify-content: center;
+  margin: 50px;  
+  /* width: 1000px;
+  height: 1000px; */
+}
+.movie-poster-f{
+  justify-content: center;
+  margin: 50px;  
+  width: 350px;
+  height: 400px;
+}
+.movie-info{
+  margin: 50px; 
+}
+
+.movie-info-f{
+  margin: 50px; 
+  height: 450px;
+  width: 350px;
+}
+
+.movie-title{
+  font-size: 50px;
+  color: yellow;
+}
+
+.movie-misc-info{
+  display: flex;
+  list-style-type: none;
+  justify-content:space-between;
+  margin-right: 50px;
+ 
+}
+
+.year{
+  background-color: #fffffc;
+  margin-left: -27px;
+  font-weight: 600;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: rgb(7, 5, 5);
+  border-radius: 5px;
+}
+.rated{
+    background-color: #fffffc;
+    margin-left: -27px;
+    font-weight: 600;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: rgb(7, 5, 5);
+    border-radius: 5px;
+}
+.released{
+  background-color: #fffffc;
+  margin-left: -27px;
+  font-weight: 600;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: rgb(7, 5, 5);
+  border-radius: 5px;
+}
+
+
+#addToFav{
+  border: solid rgb(77, 77, 77) 2px;
+  float: right;
+  background-color: yellow;
+  color: rgb(7, 5, 5);
+  font-weight: 900;
+  border-radius: 5px;
+  margin-top: -50px;
+  margin-right: 50px;
+  /* margin: 2px; */
+}
+
+.movie-title1{
+  font-size: 25px;
+  color: #fffb09;
+}
+.plot-f{
+  color: white;
+}
+.genre-f{
+  color: white;
+}
+.writer-f{
+  color: white;
+}
+.director-f{
+  color: white;
+}
+.actors-f{
+  color: white;
+}
+.language-f{
+  color: white;
+}
+.awards-f{
+  color: rgb(224, 211, 26);
+ text-align: center;
+}
+.result-grid{
+  box-shadow: #fffffc 2px 2px 2px 2px;
+}
+
+.delete-btn{
+  float: right;
+  background-color: #d9ff02;
+  margin-top: -40px;
+
+}
+.delete-btn:hover{
+  float: right;
+  background-color: #ff0303;
+  margin-top: -40px;
+
+}
+
+.font{
+  color: #fffb09;
+  font-weight: bolder;
+  font-size: 22px;
+}
