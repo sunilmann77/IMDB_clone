@@ -1,71 +1,79 @@
+const movieSearchBox = document.getElementById('movie-search-box');
+const searchList = document.getElementById('search-list');
+const moviefetch = document.getElementById('moviefetch1');
+const searchbox = document.getElementById('searchbox');
 
-let movieID = localStorage.getItem("movieID"); // Get movie ID from localstorage
-const addToFavBtn = document.querySelector("#addToFav"); //Add to fav Button
-
-let favMovies = JSON.parse(localStorage.getItem("favMovies")); // Get details of list of movies stored in localstorage
-const moviefetch = document.querySelector("#moviefetch1"); //movie container
-
-// this command will run only if there is a valid movieID
-if (movieID) {
-          getData(movieID);
+if (!localStorage.getItem("favMovies")) {
+    let favMovies = [];
+    localStorage.setItem("favMovies", JSON.stringify(favMovies));
 }
 
-// Load only clicked movie detail
-async function getData(movieID) {
-          const result = await fetch(
-                    `http://www.omdbapi.com/?i=${movieID}&apikey=755f786c`
-          ); //Base URL
-          const movieDetails = await result.json(); //Converting Movie Details from server to JSON format
-          displayMovieDetails(movieDetails); //Display the movie
+async function loadMovies(searchTerm) {
+    const URL = `https://omdbapi.com/?s=${searchTerm}&page=1&apikey=fc1fef96`;
+    const res = await fetch(`${URL}`);
+    const data = await res.json();
+    if (data.Response == "True") displayMovieList(data.Search);
 }
 
-//Showing movie in the moviePage
-const displayMovieDetails = (details) => {
-          //Add movie to Page
-          moviefetch.innerHTML = `
-          <div class = "movie-poster">
-              <img src = "${(details.Poster != "N/A") ? details.Poster : "image_not_found.png"}" alt = "movie poster">
-          </div>
-          <div class = "movie-info">
-          <h3 class = "movie-title">${details.Title}</h3>
-          <ul class = "movie-misc-info">
-              <li class = "year">Year: ${details.Year}</li>
-              <li class = "rated">Ratings: ${details.Rated}</li>
-              <li class = "released">Released: ${details.Released}</li>
-          </ul><br>
-          <p class = "genre"><b>Genre:</b> ${details.Genre}</p><hr>
-          <p class = "writer"><b>Writer:</b> ${details.Writer}</p><hr>
-          <p class = "actors"><b>Actors: </b>${details.Actors}</p><hr>
-          <p class = "plot"><b>Plot:</b> ${details.Plot}</p><hr>
-          <p class = "language"><b>Language:</b> ${details.Language}</p><hr>
-          <p class = "awards"><b><b>Awards:</b></i></b><span class="font"> ${details.Awards}</span></p>
-          </div>
-`;
-};
-
-if (movieID) {
-          if (favMovies.includes(movieID)) {
-                    addToFavBtn.textContent = "Already Added To Watchlist !!";
-          }
+function findMovies(){
+    let searchTerm = (movieSearchBox.value).trim();
+    if(searchTerm.length > 0){
+        searchList.classList.remove('hide-search-list');
+        loadMovies(searchTerm);
+    } else {
+        searchList.classList.add('hide-search-list');
+    }
 }
 
-//Favourite Button
-const addToFav = () => {
-          addToFavBtn.textContent = "Added To Watchlist";
+function displayMovieList(movies){
+    searchList.innerHTML = "";
+    for(let idx = 0; idx < movies.length; idx++){
+        let movieListItem = document.createElement('div');
+        movieListItem.dataset.id = movies[idx].imdbID; // setting movie id in  data-id
+        movieListItem.classList.add('search-list-item');
+        if(movies[idx].Poster != "N/A")
+            moviePoster = movies[idx].Poster;
+        else 
+            moviePoster = "image_not_found.png";
 
-          //Check if movie is already added to the list
-          if (favMovies.includes(movieID)) {
-                    addToFavBtn.textContent = "Already Added To Watchlist";
-          } else {
-                    favMovies.push(movieID); //Add movie to favourite list
+        movieListItem.innerHTML = `
+        <div class = "search-item-thumbnail">
+            <img src = "${moviePoster}">
+        </div>
+        <div class = "search-item-info">
+            <h4>${movies[idx].Title}</h4>
+            <p>${movies[idx].Year}</p>
+        </div>
+        `;
+        searchList.appendChild(movieListItem);
+    }
+    loadMovieDetails();
+}
 
-                    //add new favMovies data to local storage
-                    localStorage.setItem(
-                              "favMovies",
-                              JSON.stringify(favMovies)
-                    ); //set data to localstorage
-          }
-};
 
-//Event listeners
-addToFavBtn.addEventListener("click", addToFav);
+function loadMovieDetails(){
+    const searchListMovies = searchList.querySelectorAll('.search-list-item');
+    searchListMovies.forEach(movie => {
+        movie.addEventListener('click', async () => {
+            // console.log(movie.dataset.id);
+            searchList.classList.add('hide-search-list');
+            searchbox.classList.add('hide-search-list');
+            movieSearchBox.value = "";
+             localStorage.setItem("movieID", movie.dataset.id); // Set movie id to localstorage to use it in moviePage.html
+
+            window.location.href = "/moviepage/index.html"; 
+                 
+            const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=fc1fef96`);
+            const movieDetails = await result.json();
+            // console.log(movieDetails);
+            displayMovieDetails(movieDetails);
+        });
+    });
+}
+
+
+window.addEventListener('click', (event) => {
+    if(event.target.className != "form-control"){
+        searchList.classList.add('hide-search-list');
+    }
+});
