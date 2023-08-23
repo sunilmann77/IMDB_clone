@@ -16,7 +16,7 @@ Link to Live Demo
 
 
 Copy code
-git clone [https://github.com/your-username/imdb-clone.git](https://github.com/sunilmann77/IMDB_clone)
+git clone [https://github.com/sunilmann/imdb-clone.git](https://github.com/sunilmann77/IMDB_clone)
 Change to the project directory:
 
 
